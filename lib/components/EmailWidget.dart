@@ -24,7 +24,6 @@ class EmailWidget extends StatelessWidget {
           hintText: "Email",
           border: InputBorder.none,
         ),
-        validator: (value) => value == null || value.isEmpty  ? "Digite o email" : null,
       ),
     );
   }

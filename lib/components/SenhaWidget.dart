@@ -38,7 +38,6 @@ class _SenhaWidget extends State<SenhaWidget> {
             hintText: "Senha",
             border: InputBorder.none),
         obscureText: _obscureText,
-        validator: (value) => value == null || value.isEmpty ? "digite a senha!" : null,
       ),
     );
   }

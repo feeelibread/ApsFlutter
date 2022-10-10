@@ -67,8 +67,9 @@ class _LoginScreen extends State<LoginScreen> {
             ),
             ElevatedButton(
               onPressed: (){
-                Navigator.pushReplacement(
-                    context, MaterialPageRoute(builder: (context) => const MainScreen())
+                Navigator.pop(
+                    context, MaterialPageRoute(
+                    builder: (context) => const MainScreen())
                 );
               },
               style: ElevatedButton.styleFrom(
