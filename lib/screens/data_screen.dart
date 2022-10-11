@@ -28,9 +28,10 @@ class _DataScreen extends State<DataScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
-              Text("Finja que tem um dado legal aqui ó", style: TextStyle(
-                fontSize: 18
-              ),)
+              Text(
+                "Finja que tem um dado legal aqui ó",
+                style: TextStyle(fontSize: 18),
+              )
             ],
           ),
         ),
