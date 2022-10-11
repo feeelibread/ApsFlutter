@@ -20,6 +20,14 @@ class _SenhaWidget extends State<SenhaWidget> {
         borderRadius: BorderRadius.circular(29),
       ),
       child: TextFormField(
+        validator: (value) {
+          if(value == null || value.length < 6) {
+            return "Senha vazia ou menor que 6 caracteres";
+          }
+          else {
+
+          }
+        },
         keyboardType: TextInputType.text,
         decoration: InputDecoration(
             icon: const Icon(

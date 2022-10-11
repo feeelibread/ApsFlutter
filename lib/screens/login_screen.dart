@@ -60,7 +60,7 @@ class _LoginScreen extends State<LoginScreen> {
                       });
                     }),
                 const Text(
-                  'Continuar conetado?',
+                  'Continuar conectado?',
                   style: TextStyle(color: Colors.white),
                 ),
               ],

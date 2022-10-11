@@ -1,3 +1,4 @@
+import 'package:aps_flutter/screens/data_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,6 +13,7 @@ class _HomeScreen extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: const Color(0xFF16910B),
           title: const Text('Insira a cidade, bairro e estado'),
         ),
@@ -22,21 +24,23 @@ class _HomeScreen extends State<HomeScreen> {
               TextFormField(
                 autofocus: true,
                 decoration: const InputDecoration(
-                    labelText: "Cidade",
+                  labelText: "Cidade",
                 ),
               ),
               TextFormField(
                   autofocus: true,
                   decoration: const InputDecoration(labelText: "Estado")),
               TextFormField(
-                autofocus: true,
-                decoration: const InputDecoration(labelText: "Bairro")
-              ),
+                  autofocus: true,
+                  decoration: const InputDecoration(labelText: "Bairro")),
               Container(
                 padding: const EdgeInsets.symmetric(vertical: 30),
                 child: ElevatedButton(
-                  onPressed: (){
-                    Navigator.pop(context);
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => DataScreen())
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF256B12),

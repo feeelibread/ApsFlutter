@@ -15,6 +15,12 @@ class EmailWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(29),
       ),
       child: TextFormField(
+        validator: (value) {
+          if(value == null) {
+            return "Insira o E-mail!";
+          }
+          return null;
+        },
         keyboardType: TextInputType.emailAddress,
         decoration: const InputDecoration(
           icon: Icon(
