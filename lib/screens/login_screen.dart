@@ -1,7 +1,7 @@
 import 'package:aps_flutter/components/EmailWidget.dart';
 import 'package:aps_flutter/components/EsqueciASenha.dart';
 import 'package:aps_flutter/components/senhaWidget.dart';
-import 'package:aps_flutter/screens/main_screen.dart';
+import 'package:aps_flutter/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -67,9 +67,9 @@ class _LoginScreen extends State<LoginScreen> {
             ),
             ElevatedButton(
               onPressed: (){
-                Navigator.pop(
+                Navigator.push(
                     context, MaterialPageRoute(
-                    builder: (context) => const MainScreen())
+                    builder: (context) => const HomeScreen())
                 );
               },
               style: ElevatedButton.styleFrom(

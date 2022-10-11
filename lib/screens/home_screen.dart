@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<MainScreen> createState() => _MainScreen();
+  State<HomeScreen> createState() => _HomeScreen();
 }
 
-class _MainScreen extends State<MainScreen> {
+class _HomeScreen extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: const Color(0xFF609651),
+          backgroundColor: const Color(0xFF16910B),
           title: const Text('Insira a cidade, bairro e estado'),
         ),
         body: Container(
@@ -35,7 +35,9 @@ class _MainScreen extends State<MainScreen> {
               Container(
                 padding: const EdgeInsets.symmetric(vertical: 30),
                 child: ElevatedButton(
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.pop(context);
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF256B12),
                     shape: RoundedRectangleBorder(
