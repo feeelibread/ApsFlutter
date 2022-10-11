@@ -39,7 +39,7 @@ class _HomeScreen extends State<HomeScreen> {
                   onPressed: () {
                     Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => DataScreen())
+                        MaterialPageRoute(builder: (context) => const DataScreen())
                     );
                   },
                   style: ElevatedButton.styleFrom(
