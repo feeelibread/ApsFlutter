@@ -14,7 +14,7 @@ class _DataScreen extends State<DataScreen> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: const Color(0xFF16910B),
-        title: const Text('Co2 atual'),
+        title: const Text('Dados coletados'),
       ),
       body: Container(
         alignment: Alignment.center,

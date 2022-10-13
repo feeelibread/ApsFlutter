@@ -1,6 +1,6 @@
-import 'package:aps_flutter/components/EmailWidget.dart';
-import 'package:aps_flutter/components/EsqueciASenha.dart';
-import 'package:aps_flutter/components/senhaWidget.dart';
+import 'package:aps_flutter/components/email_widget.dart';
+import 'package:aps_flutter/components/esqueci_a_senha_widget.dart';
+import 'package:aps_flutter/components/senha_widget.dart';
 import 'package:aps_flutter/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
