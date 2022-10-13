@@ -25,7 +25,7 @@ class _SenhaWidget extends State<SenhaWidget> {
             return "Senha vazia ou menor que 6 caracteres";
           }
           else {
-
+            return null;
           }
         },
         keyboardType: TextInputType.text,

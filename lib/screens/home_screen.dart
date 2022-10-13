@@ -1,7 +1,6 @@
 import 'package:aps_flutter/components/final_date_picker_widget.dart';
 import 'package:aps_flutter/screens/data_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 import '../components/initial_date_picker_widget.dart';
 
@@ -13,8 +12,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreen extends State<HomeScreen> {
-  final TextEditingController _date = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
