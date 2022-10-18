@@ -1,3 +1,5 @@
+import 'package:aps_flutter/entities/post_dto.dart';
+import 'package:aps_flutter/services/http_services.dart';
 import 'package:flutter/material.dart';
 
 class DataScreen extends StatefulWidget {
@@ -8,33 +10,37 @@ class DataScreen extends StatefulWidget {
 }
 
 class _DataScreen extends State<DataScreen> {
+  HttpService httpService = HttpService();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: const Color(0xFF16910B),
-        title: const Text('Dados coletados'),
+        title: Text("Co2 Data"),
       ),
-      body: Container(
-        alignment: Alignment.center,
-        padding: const EdgeInsets.all(10),
-        child: Container(
-          height: 300,
-          width: 300,
-          decoration: BoxDecoration(
-              border: Border.all(color: Colors.black87),
-              shape: BoxShape.circle),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text(
-                "Finja que tem um dado legal aqui ó",
-                style: TextStyle(fontSize: 18),
-              )
-            ],
-          ),
-        ),
+      body: FutureBuilder(
+        future: httpService.getPosts(),
+        builder:
+            (BuildContext context, AsyncSnapshot<List<PostsDto>> snapshot) {
+          if (snapshot.hasData) {
+            List<PostsDto>? posts = snapshot.data;
+            return ListView(
+              children: posts!
+                  .map(
+                    (PostsDto post) => ListTile(
+                      title: Text("Id: ${post.id}"),
+                      subtitle: Text("Identificador: ${post.identificador}"),
+                      trailing: Text("Co2: ${post.sensorData!.co2}, Temperatura: ${post.sensorData!.temperatura}"),
+                    ),
+                  )
+                  .toList(),
+            );
+          } else {
+            return Center(child: CircularProgressIndicator());
+          }
+        },
       ),
     );
   }
