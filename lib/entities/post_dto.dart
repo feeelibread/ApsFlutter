@@ -7,7 +7,7 @@ class PostsDto {
   int? epoch;
   int? identificador;
   SensorData? sensorData;
-  Null? rawCo2Data;
+  String? rawCo2Data;
 
   PostsDto(
       {@required this.id,
