@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.aps_flutter">
    <application
-        android:label="aps_flutter"
+        android:label="Monitoring"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

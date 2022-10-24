@@ -8,6 +8,7 @@ class EmailWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      key: key,
       margin: const EdgeInsets.symmetric(vertical: 10),
       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
       decoration: BoxDecoration(
@@ -16,8 +17,8 @@ class EmailWidget extends StatelessWidget {
       ),
       child: TextFormField(
         validator: (value) {
-          if(value == null) {
-            return "Insira o E-mail!";
+          if(value == null || value != 'admin') {
+            return "Email vazio ou email errado!";
           }
           return null;
         },

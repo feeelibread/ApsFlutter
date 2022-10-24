@@ -1,19 +1,34 @@
 import 'dart:convert';
-
 import 'package:aps_flutter/entities/post_dto.dart';
 import 'package:http/http.dart';
 
 class HttpService {
-  late String estado;
-  late String cidade;
-  late String bairro;
-  late String dataInicial;
-  late String dataFinal;
 
-  late String postsUrl = 'https://monitoring-esp32.herokuapp.com/monitoring/co2data?estado=${estado}&cidade=${cidade}&bairro=${bairro}&data_inicial=${dataInicial}&data_final=${dataFinal}';
+  String estado = "";
+  String cidade = "";
+  String bairro = "";
+  String dataInicial = "";
+  String dataFinal = "";
+  String baseUrl = "https://monitoring-esp32.herokuapp.com/monitoring/co2data?";
+
+  String retrieveData() {
+    String postUrl = baseUrl;
+    postUrl+= "estado=${estado}&data_inicial=${dataInicial}&data_final=${dataFinal}";
+
+    if(!cidade.isEmpty) {
+      postUrl += "&cidade=${cidade}";
+    }
+
+    if(!bairro.isEmpty) {
+      postUrl+= "&bairro=${bairro}";
+    }
+
+    return postUrl;
+  }
 
   Future<List<PostsDto>> getPosts() async {
-    Response res = await get(Uri.parse(postsUrl));
+
+    Response res = await get(Uri.parse(retrieveData()));
 
     if (res.statusCode == 200) {
       List<dynamic> body = jsonDecode(res.body);

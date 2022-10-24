@@ -13,11 +13,14 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreen extends State<LoginScreen> {
   bool _continuarConectado = false;
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+        body: Form(
+      key: _formKey,
+      child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 30),
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -66,11 +69,13 @@ class _LoginScreen extends State<LoginScreen> {
               ],
             ),
             ElevatedButton(
-              onPressed: (){
-                Navigator.push(
-                    context, MaterialPageRoute(
-                    builder: (context) => const HomeScreen())
-                );
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomeScreen()));
+                }
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.black54,
@@ -84,7 +89,6 @@ class _LoginScreen extends State<LoginScreen> {
           ],
         ),
       ),
-    );
+    ));
   }
 }
-

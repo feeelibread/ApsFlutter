@@ -12,6 +12,7 @@ class _SenhaWidget extends State<SenhaWidget> {
 
   @override
   Widget build(BuildContext context) {
+    Key key;
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10),
       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
@@ -21,8 +22,8 @@ class _SenhaWidget extends State<SenhaWidget> {
       ),
       child: TextFormField(
         validator: (value) {
-          if(value == null || value.length < 6) {
-            return "Senha vazia ou menor que 6 caracteres";
+          if(value == null || value != 'admin') {
+            return "Senha vazia ou senha errada!";
           }
           else {
             return null;
@@ -49,4 +50,5 @@ class _SenhaWidget extends State<SenhaWidget> {
       ),
     );
   }
+
 }
