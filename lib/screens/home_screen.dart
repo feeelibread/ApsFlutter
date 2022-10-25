@@ -126,19 +126,14 @@ class _HomeScreen extends State<HomeScreen> {
                               http.estado = _estado.text;
                               http.cidade = _cidade.text;
                               http.bairro = _bairro.text;
-                              http.dataInicial =DateTime.parse(_dataInicial.text);
-                              http.dataFinal = DateTime.parse(_dataFinal.text);
+                              http.dataInicial = _dataInicial.text;
+                              http.dataFinal = _dataFinal.text;
                               http.retrieveData();
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
                                           DataScreen(http: http,)));
-                            }
-                            if (http.dataInicial.isAfter(http.dataFinal) || http.dataFinal.isBefore(http.dataInicial)) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(content: Text("Erro! As datas não coincidem."))
-                              );
                             }
                           },
                           style: ElevatedButton.styleFrom(
