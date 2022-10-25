@@ -7,8 +7,8 @@ class HttpService {
   String estado = "";
   String cidade = "";
   String bairro = "";
-  String dataInicial = "";
-  String dataFinal = "";
+  DateTime dataInicial = DateTime.now();
+  DateTime dataFinal = DateTime.now();
   String baseUrl = "https://monitoring-esp32.herokuapp.com/monitoring/co2data?";
 
   String retrieveData() {

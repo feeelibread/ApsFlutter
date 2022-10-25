@@ -26,7 +26,7 @@ class _HomeScreen extends State<HomeScreen> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: const Color(0xFF16910B),
-          title: const Text('Insira a cidade, bairro e estado'),
+          title: const Text('Insira o e estado, cidade e bairro '),
         ),
         body: SingleChildScrollView(
             padding: EdgeInsets.only(top: 50),
@@ -49,7 +49,7 @@ class _HomeScreen extends State<HomeScreen> {
                         },
                         autofocus: true,
                         decoration: const InputDecoration(
-                          labelText: "Estado",
+                          labelText: "Estado - UF",
                         ),
                       ),
                       TextFormField(
@@ -126,14 +126,19 @@ class _HomeScreen extends State<HomeScreen> {
                               http.estado = _estado.text;
                               http.cidade = _cidade.text;
                               http.bairro = _bairro.text;
-                              http.dataInicial = _dataInicial.text;
-                              http.dataFinal = _dataFinal.text;
+                              http.dataInicial =DateTime.parse(_dataInicial.text);
+                              http.dataFinal = DateTime.parse(_dataFinal.text);
                               http.retrieveData();
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
                                           DataScreen(http: http,)));
+                            }
+                            if (http.dataInicial.isAfter(http.dataFinal) || http.dataFinal.isBefore(http.dataInicial)) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(content: Text("Erro! As datas não coincidem."))
+                              );
                             }
                           },
                           style: ElevatedButton.styleFrom(
