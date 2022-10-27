@@ -26,7 +26,7 @@ class _HomeScreen extends State<HomeScreen> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: const Color(0xFF16910B),
-          title: const Text('Insira o e estado, cidade e bairro '),
+          title: const Text('Insira o estado, cidade e bairro '),
         ),
         body: SingleChildScrollView(
             padding: EdgeInsets.only(top: 50),
@@ -49,14 +49,13 @@ class _HomeScreen extends State<HomeScreen> {
                         },
                         autofocus: true,
                         decoration: const InputDecoration(
-                          labelText: "Estado - UF",
-                        ),
+                            labelText: "Estado - UF", hintText: "Ex: SP"),
                       ),
                       TextFormField(
                           controller: _cidade,
                           autofocus: true,
-                          decoration:
-                              const InputDecoration(labelText: "Cidade")),
+                          decoration: const InputDecoration(
+                              labelText: "Cidade", hintText: "Ex: Juquitiba")),
                       TextFormField(
                           controller: _bairro,
                           autofocus: true,
@@ -85,7 +84,8 @@ class _HomeScreen extends State<HomeScreen> {
                           if (pickedDate != null) {
                             setState(() {
                               _dataInicial.text =
-                                  DateFormat('yyyy-MM-ddT00:00:00.000').format(pickedDate);
+                                  DateFormat('yyyy-MM-ddT00:00:00.000')
+                                      .format(pickedDate);
                             });
                           }
                         },
@@ -113,7 +113,8 @@ class _HomeScreen extends State<HomeScreen> {
                           if (pickedDate != null) {
                             setState(() {
                               _dataFinal.text =
-                                  DateFormat('yyyy-MM-ddT00:00:00.000').format(pickedDate);
+                                  DateFormat('yyyy-MM-ddT00:00:00.000')
+                                      .format(pickedDate);
                             });
                           }
                         },
@@ -132,8 +133,9 @@ class _HomeScreen extends State<HomeScreen> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>
-                                          DataScreen(http: http,)));
+                                      builder: (context) => DataScreen(
+                                            http: http,
+                                          )));
                             }
                           },
                           style: ElevatedButton.styleFrom(
